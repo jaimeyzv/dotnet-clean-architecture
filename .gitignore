@@ -1,0 +1,66 @@
+## Ignore build output and user-specific files
+bin/
+obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## ASP.NET Core specific
+appsettings.Development.json
+appsettings.Production.json
+appsettings.Staging.json
+secrets.json
+
+## .NET Core
+project.lock.json
+project.fragment.lock.json
+artifacts/
+*.db
+*.sqlite
+*.pdb
+
+## Rider and VSCode settings
+.idea/
+.vscode/
+.vs/
+
+## Dependency directories
+node_modules/
+packages/
+
+## Logs
+*.log
+
+## Test results
+TestResults/
+*.trx
+*.coverage
+
+## Resharper
+_ReSharper*/
+*.DotSettings.user
+
+## macOS/Linux system files
+.DS_Store
+Thumbs.db
+
+## npm/yarn/pnpm lock files (optional)
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+## JetBrains Rider cache
+.idea/
+
+## Others
+*.ncrunch*
+*.localhistory
+*.scc
+*.publish.xml
+*.mdf
+*.ldf
+*.dbmdl
+
+## EF Core Migrations Snapshots (optional)
+Migrations/*Snapshot.cs
