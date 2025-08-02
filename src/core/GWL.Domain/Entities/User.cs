@@ -1,6 +1,6 @@
 ﻿namespace GWL.Domain.Entities
 {
-    public class User : BaseEntity
+    public class User
     {        
         public int UserId { get; }
         public string FirstName { get; private set; }

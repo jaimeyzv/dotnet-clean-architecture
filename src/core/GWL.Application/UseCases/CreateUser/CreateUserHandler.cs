@@ -16,12 +16,8 @@ namespace GWL.Application.UseCases.CreateUser
         public async Task<CreateUserResponse> Handle(CreateUserRequest request, CancellationToken cancellationToken)
         {
             var user = _mapper.Map<User>(request);
-            var existingUser = await _repository.Get(request.UserId, cancellationToken);
 
-            if (existingUser is not null)
-                throw new ArgumentException("Email already registered.");
-
-            _repository.Create(user);
+            await _repository.Create(user, cancellationToken);
             await _unitOfWork.Commit(cancellationToken);
 
             return _mapper.Map<CreateUserResponse>(user);

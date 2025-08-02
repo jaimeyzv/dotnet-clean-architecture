@@ -2,8 +2,9 @@
 
 namespace GWL.Domain.Interfaces
 {
-    public interface IUserRepository : IBaseRepository<User>
+    public interface IUserRepository
     {
-        public Task<User?> Get(int userId, CancellationToken cancellationToken);
+        public Task<User?> GetByUserId(int userId, CancellationToken cancellationToken);
+        Task Create(User domain, CancellationToken cancellationToken);
     }
 }
