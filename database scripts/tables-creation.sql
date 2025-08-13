@@ -19,7 +19,7 @@ CREATE TABLE [dbo].[Loans]
 	Principal		DECIMAL(10, 2) NOT NULL,
 	CurrentBalance	DECIMAL(10, 2) NOT NULL,
 	BorrowerName	VARCHAR(100) NOT NULL,
-	LoanTerm		INT NOT NULL,
+	DurationMonths	INT NOT NULL,
 	InterestRate	DECIMAL(10, 2) NOT NULL,
 	TotalPayment	DECIMAL(10, 2) NOT NULL,
 	Status			VARCHAR(20) NOT NULL
