@@ -23,10 +23,9 @@ I have found .NET to be the ideal platform for building structured, scalable, an
 
 Coming from a background that values SOLID principles and object-oriented design, it has been natural to apply those principles when designing services, use cases, and domain models in .NET.
 
-Like any architectural approach, Clean Architecture involves trade-offs. It’s important to strike the right balance — avoiding unnecessary complexity or over-abstraction, while maintaining flexibility and a clear separation of concerns.
+Like any architectural approach, Clean Architecture involves trade-offs. It’s important to strike the right balance, avoiding unnecessary complexity or over-abstraction, while maintaining flexibility and a clear separation of concerns.
 
-In my projects, I have applied the concepts proposed by Robert C. Martin (Uncle Bob) and combined them with ideas from Hexagonal Architecture, Onion Architecture, and Screaming Architecture. The goal has always been to make the application resilient to change, especially given how often client requirements evolve — which, as we all know, is a certainty in software development.
-
+In my projects, I have applied the concepts proposed by Robert C. Martin (Uncle Bob) and combined them with ideas from Hexagonal Architecture, Onion Architecture, and Screaming Architecture. The goal has always been to make the application resilient to change, especially given how often client requirements evolve (which, as we all know, is a certainty in software development).
 
 ## About the project
 
