@@ -30,9 +30,13 @@ In my projects, I have applied the concepts proposed by Robert C. Martin (Uncle 
 
 ## About the project
 
-The purpose of the sample project I am submitting is to provide an online loan management system, enabling loans to be paid back in monthly installments. The system allows users to register borrowers and monitor their repayment progress.
+The purpose of the sample project I am submitting is to demonstrate an online loan management system that supports repayment in monthly installments. It enables users to register borrowers, track loan details, view the total and remaining installments for each loan, and calculate the profit generated from each loan.
 
-## Stay in touch
+## About me
 
-- Author - [Jaime Zamora](https://github.com/jaimeyzv)
+Hi, I am Jaime Zamora, a Software Engineer with over 13 years of experience. Throughout my career, I have designed and developed solutions across various domains, helping companies build scalable, maintainable, and high-quality software. I am passionate about applying clean architecture principles, sharing knowledge, and continuously improving my craft.
 
+You can connect with me on:
+
+- [LinkedIn](https://www.linkedin.com/in/jaimeyzv)
+- [GitHub](https://github.com/jaimeyzv)
