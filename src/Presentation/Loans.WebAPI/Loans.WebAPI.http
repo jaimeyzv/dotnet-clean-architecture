@@ -1,0 +1,6 @@
+@Loans.WebAPI_HostAddress = http://localhost:5122
+
+GET {{Loans.WebAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
