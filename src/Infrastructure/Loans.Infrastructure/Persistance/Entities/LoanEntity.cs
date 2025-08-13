@@ -6,6 +6,11 @@ namespace Loans.Infrastructure.Persistance.Entities
     [Table("Loans")]
     public class LoanEntity
     {
+        public LoanEntity()
+        {
+         this.Installments = new List<InstallmentEntity>();
+        }
+
         [Key]
         [Column("LoanId")]
         public int LoanId { get; set; }
@@ -30,5 +35,7 @@ namespace Loans.Infrastructure.Persistance.Entities
 
         [Column("Status")]
         public string Status { get; set; }
+
+        public ICollection<InstallmentEntity> Installments { get; set; }
     }
 }

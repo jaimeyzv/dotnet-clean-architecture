@@ -19,10 +19,17 @@ namespace Loans.Infrastructure.Persistance.Repositories
             this._mapper = mapper;
         }
 
+        /// <summary>
+        /// This saved the loan entity to the database and its calculated installments built in the LoanDomain.
+        /// </summary>
+        /// <param name="domain"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
         public async Task CreateAsync(LoanDomain domain, CancellationToken cancellationToken)
         {
             var loanEntity = _mapper.Map<LoanEntity>(domain);
             _context.Loans.Add(loanEntity);
+            await Task.CompletedTask;
         }
 
         public async Task<List<LoanDomain>> GetAllAsync(CancellationToken cancellationToken)

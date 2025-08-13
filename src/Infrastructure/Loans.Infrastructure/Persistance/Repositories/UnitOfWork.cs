@@ -20,14 +20,12 @@ namespace Loans.Infrastructure.Persistance.Repositories
             {
                 var success = (await _context.SaveChangesAsync(cancellationToken)) > 0;
 
-                // commit if everything went well
                 await transaction.CommitAsync(cancellationToken);
 
                 return success;
             }
             catch(Exception e)
             {
-                // rollback if something failed
                 await transaction.RollbackAsync(cancellationToken);
                 throw;
             }

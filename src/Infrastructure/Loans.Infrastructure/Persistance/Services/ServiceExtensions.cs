@@ -19,7 +19,8 @@ namespace Loans.Infrastructure.Persistance.Services
                 options.UseSqlServer(connectionString));
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
-            services.AddScoped<ILoanRepository, LoanRepository>();            
+            services.AddScoped<ILoanRepository, LoanRepository>();
+            services.AddScoped<IInstallmentRepository, InstallmentRepository>();
         }
     }
 }

@@ -21,5 +21,6 @@ namespace Loans.Infrastructure.Persistance.Context
         }
 
         public DbSet<LoanEntity> Loans { get; set; }
+        public DbSet<InstallmentEntity> Installments { get; set; }
     }
 }

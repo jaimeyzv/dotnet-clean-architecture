@@ -12,7 +12,6 @@ GO
 USE [OnlineLoans]
 GO
 
---Loans are based in months
 CREATE TABLE [dbo].[Loans]
 (
 	LoanId			INT PRIMARY KEY IDENTITY (1, 1),
@@ -23,6 +22,20 @@ CREATE TABLE [dbo].[Loans]
 	InterestRate	DECIMAL(10, 2) NOT NULL,
 	TotalPayment	DECIMAL(10, 2) NOT NULL,
 	Status			VARCHAR(20) NOT NULL
+)
+GO
+
+CREATE TABLE [dbo].[LoanInstallments]
+(
+	LoanInstallmentId	INT PRIMARY KEY IDENTITY (1, 1),
+	InstallmentNumber 	INT NOT NULL,
+	DueDate				DATETIME NOT NULL,
+	Amount 				DECIMAL(10, 2) NOT NULL,
+	IsPaid 				BIT NOT NULL,
+	PaymentDate 		DATETIME NULL,
+	LoanInstallmentsLoanId	INT NOT NULL,
+
+	FOREIGN KEY (LoanInstallmentsLoanId) REFERENCES [Loans] (LoanId)
 )
 GO
 
@@ -44,7 +57,4 @@ GO
 
 /*---------------------------- SELECTS ----------------------------*/
 SELECT * FROM [dbo].[Loans]
---SELECT * FROM [dbo].[LoansHistory]
-delete from [dbo].[Loans] where LoanId in (5, 6)
-
--- 100,000.00
+SELECT * FROM [dbo].[LoanInstallments]

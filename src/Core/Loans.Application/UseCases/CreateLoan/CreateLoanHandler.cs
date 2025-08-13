@@ -23,10 +23,10 @@ namespace Loans.Application.UseCases.CreateLoan
         public async Task<CreateLoanResponse> Handle(CreateLoanRequest request, CancellationToken cancellationToken)
         {
             var loanDomain = _mapper.Map<LoanDomain>(request);
-            loanDomain.NewLoanCreation();
-            //await _loanRepository.CreateAsync(loanDomain); taking off 'cancellationToken' ??
+            loanDomain.NewLoanCreation();            
+            loanDomain.GenerateInstallments(DateTime.Today.AddMonths(1));
             await _loanRepository.CreateAsync(loanDomain, cancellationToken);
-            var newId = await _unitOfWork.CommitAsync(cancellationToken);
+            await _unitOfWork.CommitAsync(cancellationToken);
             return _mapper.Map<CreateLoanResponse>(loanDomain);
         }
     }

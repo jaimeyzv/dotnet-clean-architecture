@@ -1,7 +1,12 @@
 ﻿namespace Loans.Domain.Entities
 {
-    public class LoanDomain
+    public sealed class LoanDomain
     {
+        public LoanDomain()
+        {
+            this.Installments = new List<InstallmentDomain>();
+        }
+
         public int LoanId { get; set; }
         public decimal Principal { get; set; }
         public decimal CurrentBalance { get; set; }
@@ -10,6 +15,8 @@
         public decimal InterestRate { get; set; }
         public decimal TotalPayment { get; set; }
         public string Status { get; set; }
+
+        public List<InstallmentDomain> Installments;
 
         public void MakePayment(decimal paymentAmount)
         {
@@ -42,6 +49,16 @@
             this.CurrentBalance = totalPayment;
             this.TotalPayment = totalPayment;
             this.Status = "Active";
+        }
+
+        public void GenerateInstallments(DateTime firstDueDate)
+        {            
+            var monthlyAmount = Math.Round(TotalPayment / DurationMonths, 2);
+
+            for (int i = 1; i <= DurationMonths; i++)
+            {
+                Installments.Add(new InstallmentDomain(i, firstDueDate.AddMonths(i - 1), monthlyAmount));
+            }
         }
     }
 }
