@@ -1,4 +1,5 @@
 ﻿using Loans.Application.UseCases.CreateLoan;
+using Loans.Application.UseCases.GetAllLoans;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -29,6 +30,20 @@ namespace Loans.WebAPI.Controllers
             catch (Exception ex)
             {
                 return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpGet()]
+        public async Task<ActionResult<GetAllLoansResponse>> GetByLoanId(CancellationToken cancellationToken)
+        {
+            try
+            {
+                var response = await _mediator.Send(new GetAllLoansRequest(), cancellationToken);
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                return NotFound(ex.Message);
             }
         }
     }
