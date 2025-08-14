@@ -34,31 +34,30 @@ The purpose of the sample project I am submitting is to demonstrate an online lo
 ## Project Structure
 
 ```bash
-\---src
-    +---Core
-    |   +---Loans.Application
-    |   |   +---Repositories
-    |   |   +---Services
-    |   |   \---UseCases
-    |   |       +---CreateLoan
-    |   |       \---GetInstallmentsByLoandId
-    |   \---Loans.Domain
-    |       +---Entities
-    |       \---ValueObjects
-    +---Infrastructure
-    |   \---Loans.Infrastructure
-    |       \---Persistance
-    |           +---Configurations
-    |           +---Context
-    |           +---Entities
-    |           +---Mappers
-    |           +---Repositories
-    |           \---Services
-    \---Presentation
-        \---Loans.WebAPI
+└---src
+    ├---Core
+    |   ├---Loans.Application
+    |   |   ├---Repositories
+    |   |   ├---Services
+    |   |   └---UseCases
+    |   |       ├---CreateLoan
+    |   |       └---GetInstallmentsByLoandId
+    |   └---Loans.Domain
+    |       ├---Entities
+    |       └---ValueObjects
+    ├---Infrastructure
+    |   └---Loans.Infrastructure
+    |       └---Persistance
+    |           ├---Configurations
+    |           ├---Context
+    |           ├---Entities
+    |           ├---Mappers
+    |           ├---Repositories
+    |           └---Services
+    └---Presentation
+        +---Loans.WebAPI
             +---Controllers
-            +---Extensions
-			
+            └---Extensions
 ```
 
 ## About me
