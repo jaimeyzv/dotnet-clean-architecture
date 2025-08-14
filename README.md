@@ -1,6 +1,6 @@
-## Clean Architecture with NET 9
+## 🏗️ Clean Architecture with NET 9
 
-## Description
+## 📝 Description
 
 Although I haven’t published a previous article on this topic, I’ve had the opportunity to work on several real-world projects — many of them based in the United States — where we implemented microservices using [Clean Architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html) principles.
 
@@ -27,40 +27,40 @@ Like any architectural approach, Clean Architecture involves trade-offs. It’s 
 
 In my projects, I have applied the concepts proposed by Robert C. Martin (Uncle Bob) and combined them with ideas from Hexagonal Architecture, Onion Architecture, and Screaming Architecture. The goal has always been to make the application resilient to change, especially given how often client requirements evolve (which, as we all know, is a certainty in software development).
 
-## About the project
+## 🚀 About the project
 
 The purpose of the sample project I am submitting is to demonstrate an online loan management system that supports repayment in monthly installments. It enables users to register borrowers, track loan details, view the total and remaining installments for each loan, and calculate the profit generated from each loan.
 
-## Project Structure
+## 📁 Project Structure
 
 ```bash
-└---src
-    ├---Core
-    |   ├---Loans.Application
-    |   |   ├---Repositories
-    |   |   ├---Services
-    |   |   └---UseCases
-    |   |       ├---CreateLoan
-    |   |       └---GetInstallmentsByLoandId
-    |   └---Loans.Domain
-    |       ├---Entities
-    |       └---ValueObjects
-    ├---Infrastructure
-    |   └---Loans.Infrastructure
-    |       └---Persistance
-    |           ├---Configurations
-    |           ├---Context
-    |           ├---Entities
-    |           ├---Mappers
-    |           ├---Repositories
-    |           └---Services
-    └---Presentation
-        +---Loans.WebAPI
-            +---Controllers
-            └---Extensions
+└───src
+    ├───Core
+    │   ├───Loans.Application
+    │   │   ├───Repositories
+    │   │   ├───Services
+    │   │   └───UseCases
+    │   │       ├───CreateLoan
+    │   │       └───GetInstallmentsByLoandId
+    │   └───Loans.Domain
+    │       ├───Entities
+    │       └───ValueObjects
+    ├───Infrastructure
+    │   └───Loans.Infrastructure
+    │       └───Persistance
+    │           ├───Configurations
+    │           ├───Context
+    │           ├───Entities
+    │           ├───Mappers
+    │           ├───Repositories
+    │           └───Services
+    └───Presentation
+        └───Loans.WebAPI
+            ├───Controllers
+            └───Extensions
 ```
 
-## About me
+## 👤 About me
 
 Hi, I am Jaime Zamora, a Software Engineer with over 13 years of experience. Throughout my career, I have designed and developed solutions across various domains, helping companies build scalable, maintainable, and high-quality software. I am passionate about applying clean architecture principles, sharing knowledge, and continuously improving my craft.
 
