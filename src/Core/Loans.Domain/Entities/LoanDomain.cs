@@ -23,6 +23,17 @@
             this.Status = "Paid";
         }
 
+        public void DiscountAfterinstallmentPayment(decimal paymentAmount)
+        {
+            if (paymentAmount <= 0)
+                throw new Exception("Payment amount must be greater than zero.");
+
+            if (paymentAmount > CurrentBalance)
+                throw new Exception("Payment amount cannot exceed the current balance.");
+
+            CurrentBalance -= paymentAmount;
+        }
+
         public void NewLoanCreation()
         {
             if (Principal <= 0)
