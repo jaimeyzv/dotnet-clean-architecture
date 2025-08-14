@@ -60,6 +60,11 @@ The purpose of the sample project I am submitting is to demonstrate an online lo
             └───Extensions
 ```
 
+## 🔗 Related Frontend Project
+This backend pairs with the companion Angular frontend below. Together they form a complete full-stack system.
+
+- [Online Loan Frontend (Angular)](https://github.com/jaimeyzv/angular-feture-based-architecture)
+
 ## 👤 About me
 
 Hi, I am Jaime Zamora, a Software Engineer with over 13 years of experience. Throughout my career, I have designed and developed solutions across various domains, helping companies build scalable, maintainable, and high-quality software. I am passionate about applying clean architecture principles, sharing knowledge, and continuously improving my craft.
