@@ -6,6 +6,6 @@ namespace Loans.Application.Repositories
     {
         Task<InstallmentDomain> GetByIdAsync(int installmentId, CancellationToken cancellationToken);
         Task<List<InstallmentDomain>> GetAllByLoanIdAsync(int loanId, CancellationToken cancellationToken);
-        Task Update(InstallmentDomain domain, CancellationToken cancellationToken);
+        Task UpdateAsync(InstallmentDomain domain, CancellationToken cancellationToken);
     }
 }

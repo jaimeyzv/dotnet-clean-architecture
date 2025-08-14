@@ -23,6 +23,7 @@ namespace Loans.Infrastructure.Persistance.Repositories
         {
             var entity = await _context
                     .Installments
+                    .AsNoTracking()
                     .FirstOrDefaultAsync(x => x.LoanInstallmentId == installmentId, cancellationToken);
 
             if (entity == null) return null;
@@ -36,20 +37,25 @@ namespace Loans.Infrastructure.Persistance.Repositories
         {
             var entityList = await this._context
                 .Installments
+                .AsNoTracking()
                 .Where( i => i.LoanInstallmentsLoanId == loanId)
                 .ToListAsync();
 
             return _mapper.Map<List<InstallmentDomain>>(entityList);
         }
 
-        public async Task Update(InstallmentDomain domain, CancellationToken cancellationToken)
+        public async Task UpdateAsync(InstallmentDomain domain, CancellationToken cancellationToken)
         {
             var entity = await _context
                     .Installments
                     .SingleAsync(x => x.LoanInstallmentId == domain.InstallmentId, cancellationToken);
+
             _context.Entry(entity).State = EntityState.Detached;
             var newEntity = _mapper.Map<InstallmentEntity>(domain);
-            _context.Installments.Update(newEntity);
+
+            
+            _context.Attach(newEntity);
+            _context.Entry(newEntity).State = EntityState.Modified;
         }
     }
 }

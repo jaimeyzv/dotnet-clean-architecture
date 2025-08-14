@@ -18,20 +18,9 @@
 
         public List<InstallmentDomain> Installments;
 
-        public void MakePayment(decimal paymentAmount)
+        public void MarkAsPaid()
         {
-            if (Status != "Active" && Status != "active")
-                throw new InvalidOperationException("Cannot make payments on a non-active loan");
-
-            if (paymentAmount <= 0)
-                throw new ArgumentException("Payment must be greater than 0");
-
-            if (paymentAmount > CurrentBalance)
-                throw new InvalidOperationException("Payment exceeds current balance");
-
-            CurrentBalance -= paymentAmount;
-            if (CurrentBalance == 0)
-                Status = "Paid";
+            this.Status = "Paid";
         }
 
         public void NewLoanCreation()

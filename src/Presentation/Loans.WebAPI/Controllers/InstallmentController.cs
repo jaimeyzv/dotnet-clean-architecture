@@ -35,13 +35,14 @@ namespace Loans.WebAPI.Controllers
 
         [HttpPatch("{installmentId}")]
         public async Task<ActionResult<GetInstallmentsByLoanIdResponse>> Update(
+            [FromRoute] int loanId,
             [FromRoute] int installmentId,
             CancellationToken cancellationToken
         )
         {
             try
             {
-                var response = await _mediator.Send(new PayInstallmentRequest { InstallmentId = installmentId }, cancellationToken);
+                var response = await _mediator.Send(new PayInstallmentRequest { LoanId = loanId, InstallmentId = installmentId }, cancellationToken);
                 return Ok(response);
             }
             catch (Exception ex)

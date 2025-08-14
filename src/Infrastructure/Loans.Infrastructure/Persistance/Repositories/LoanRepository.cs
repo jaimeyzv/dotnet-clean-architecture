@@ -36,6 +36,7 @@ namespace Loans.Infrastructure.Persistance.Repositories
         {
             var entityList = await this._context
                 .Loans
+                .AsNoTracking()
                 .ToListAsync();
 
             return _mapper.Map<List<LoanDomain>>(entityList);
@@ -45,6 +46,7 @@ namespace Loans.Infrastructure.Persistance.Repositories
         {
             var entity = await _context
                     .Loans
+                    .AsNoTracking()
                     .FirstOrDefaultAsync(x => x.LoanId == loanId, cancellationToken);
 
             if (entity == null) return null;
@@ -52,6 +54,27 @@ namespace Loans.Infrastructure.Persistance.Repositories
             var loanDomain = _mapper.Map<LoanDomain>(entity);
 
             return loanDomain;
+        }
+
+        public async Task UpdateAsyn(LoanDomain domain, CancellationToken cancellationToken)
+        {
+            try
+            {
+                var entity = await _context
+                    .Loans
+                    .SingleAsync(x => x.LoanId == domain.LoanId, cancellationToken);
+                _context.Entry(entity).State = EntityState.Detached;
+
+                var newEntity = _mapper.Map<LoanEntity>(domain);
+
+                _context.Attach(newEntity);
+                _context.Entry(newEntity).State = EntityState.Modified;
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
         }
     }
 }
