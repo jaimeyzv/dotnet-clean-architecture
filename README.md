@@ -41,7 +41,9 @@ The purpose of the sample project I am submitting is to demonstrate an online lo
     │   │   ├───Services
     │   │   └───UseCases
     │   │       ├───CreateLoan
-    │   │       └───GetInstallmentsByLoandId
+	│   │       ├───GetAllLoans
+	│   │       ├───GetInstallmentsByLoandId
+    │   │       └───PayInstallment
     │   └───Loans.Domain
     │       ├───Entities
     │       └───ValueObjects
