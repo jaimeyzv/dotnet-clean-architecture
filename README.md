@@ -31,6 +31,36 @@ In my projects, I have applied the concepts proposed by Robert C. Martin (Uncle 
 
 The purpose of the sample project I am submitting is to demonstrate an online loan management system that supports repayment in monthly installments. It enables users to register borrowers, track loan details, view the total and remaining installments for each loan, and calculate the profit generated from each loan.
 
+## Project Structure
+
+```bash
+\---src
+    +---Core
+    |   +---Loans.Application
+    |   |   +---Repositories
+    |   |   +---Services
+    |   |   \---UseCases
+    |   |       +---CreateLoan
+    |   |       \---GetInstallmentsByLoandId
+    |   \---Loans.Domain
+    |       +---Entities
+    |       \---ValueObjects
+    +---Infrastructure
+    |   \---Loans.Infrastructure
+    |       \---Persistance
+    |           +---Configurations
+    |           +---Context
+    |           +---Entities
+    |           +---Mappers
+    |           +---Repositories
+    |           \---Services
+    \---Presentation
+        \---Loans.WebAPI
+            +---Controllers
+            +---Extensions
+			
+```
+
 ## About me
 
 Hi, I am Jaime Zamora, a Software Engineer with over 13 years of experience. Throughout my career, I have designed and developed solutions across various domains, helping companies build scalable, maintainable, and high-quality software. I am passionate about applying clean architecture principles, sharing knowledge, and continuously improving my craft.
