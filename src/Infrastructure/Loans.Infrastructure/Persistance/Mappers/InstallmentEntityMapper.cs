@@ -8,8 +8,6 @@ namespace Loans.Infrastructure.Persistance.Mappers
     {
         public InstallmentEntityMapper()
         {
-            //CreateMap<InstallmentEntity, InstallmentDomain>();
-
             CreateMap<InstallmentEntity, InstallmentDomain>()
                 .ConstructUsing(src => new InstallmentDomain 
                 {
@@ -22,7 +20,9 @@ namespace Loans.Infrastructure.Persistance.Mappers
                     LoanId = src.LoanInstallmentsLoanId
                 });
 
-            CreateMap<InstallmentDomain, InstallmentEntity>();
+            CreateMap<InstallmentDomain, InstallmentEntity>()
+                .ForMember(dest => dest.LoanInstallmentId, opt => opt.MapFrom(src => src.InstallmentId))
+                .ForMember(dest => dest.LoanInstallmentsLoanId, opt => opt.MapFrom(src => src.LoanId));
         }
     }
 }

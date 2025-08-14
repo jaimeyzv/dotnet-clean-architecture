@@ -1,4 +1,5 @@
 ﻿using Loans.Application.UseCases.GetInstallmentsByLoandId;
+using Loans.Application.UseCases.PayInstallment;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -24,6 +25,23 @@ namespace Loans.WebAPI.Controllers
             try
             {
                 var response = await _mediator.Send(new GetInstallmentsByLoanIdRequest { LoanId = loanId }, cancellationToken);
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                return NotFound(ex.Message);
+            }
+        }
+
+        [HttpPatch("{installmentId}")]
+        public async Task<ActionResult<GetInstallmentsByLoanIdResponse>> Update(
+            [FromRoute] int installmentId,
+            CancellationToken cancellationToken
+        )
+        {
+            try
+            {
+                var response = await _mediator.Send(new PayInstallmentRequest { InstallmentId = installmentId }, cancellationToken);
                 return Ok(response);
             }
             catch (Exception ex)
