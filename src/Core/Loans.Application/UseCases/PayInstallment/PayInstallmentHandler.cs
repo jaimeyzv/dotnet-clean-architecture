@@ -33,7 +33,7 @@ namespace Loans.Application.UseCases.PayInstallment
             var isAnyPendingInstallment = restOfInstallments.Any(i => !i.IsPaid);
 
             var loanDomain = await this._loanRepository.GetByIdAsync(request.LoanId, cancellationToken);
-            loanDomain.DiscountAfterinstallmentPayment(domain.Amount);
+            loanDomain.DiscountAfterInstallmentPayment(domain.Amount);
 
             if (!isAnyPendingInstallment)
             {                

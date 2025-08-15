@@ -15,6 +15,7 @@
         public decimal InterestRate { get; set; }
         public decimal TotalPayment { get; set; }
         public string Status { get; set; }
+        public int OverdueCount { get; set; }
 
         public List<InstallmentDomain> Installments;
 
@@ -23,7 +24,7 @@
             this.Status = "Paid";
         }
 
-        public void DiscountAfterinstallmentPayment(decimal paymentAmount)
+        public void DiscountAfterInstallmentPayment(decimal paymentAmount)
         {
             if (paymentAmount <= 0)
                 throw new Exception("Payment amount must be greater than zero.");
@@ -59,6 +60,14 @@
             {
                 Installments.Add(new InstallmentDomain(i, firstDueDate.AddMonths(i - 1), monthlyAmount));
             }
+        }
+
+        public void CalculateOverdueInstallments()
+        {
+            var now = DateTimeOffset.Now;
+            this.OverdueCount = this.Installments?
+                .Count(i => !i.IsPaid && i.DueDate < now) ?? 0;
+            this.Status = this.OverdueCount > 0 ? "Overdue" : this.Status;
         }
     }
 }
