@@ -16,6 +16,7 @@ namespace Loans.Domain.Entities
         public int DurationMonths { get; set; }
         public decimal InterestRate { get; set; }
         public decimal TotalPayment { get; set; }
+        public RepaymentModality RepaymentModality { get; set; }
         public LoanStatus Status { get; set; }
         public int OverdueCount { get; set; }
 

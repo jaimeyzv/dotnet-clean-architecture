@@ -9,6 +9,7 @@
         public int DurationMonths { get; set; }
         public decimal InterestRate { get; set; }
         public decimal TotalPayment { get; set; }
+        public string RepaymentModality { get; set; }
         public string Status { get; set; }
     }
 }

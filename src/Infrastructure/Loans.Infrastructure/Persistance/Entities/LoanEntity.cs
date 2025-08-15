@@ -33,6 +33,9 @@ namespace Loans.Infrastructure.Persistance.Entities
         [Column("TotalPayment")]
         public decimal TotalPayment { get; set; }
 
+        [Column("RepaymentModality")]
+        public string RepaymentModality { get; set; }
+
         [Column("Status")]
         public string Status { get; set; }
 

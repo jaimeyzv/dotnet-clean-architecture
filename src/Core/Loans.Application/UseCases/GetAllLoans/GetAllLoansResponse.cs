@@ -19,6 +19,7 @@
         public int DurationMonths { get; init; }
         public decimal InterestRate { get; init; }
         public decimal TotalPayment { get; init; }
+        public string RepaymentModality { get; set; }
         public string Status { get; init; }
         public int OverdueCount { get; init; }
     }

@@ -42,6 +42,11 @@ namespace Loans.Infrastructure.Persistance.Configurations
                 .IsRequired()
                 .HasPrecision(10, 2);
 
+            builder.Property(x => x.RepaymentModality)
+                .HasColumnName("RepaymentModality")
+                .IsRequired()
+                .HasMaxLength(20);
+
             builder.Property(x => x.Status)
                 .HasColumnName("Status")
                 .IsRequired()
