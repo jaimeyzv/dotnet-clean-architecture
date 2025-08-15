@@ -5,14 +5,14 @@ using MediatR;
 
 namespace Loans.Application.UseCases.PayInstallment
 {
-    public class PayInstallmentHandler : IRequestHandler<PayInstallmentRequest, PayInstallmentResponse>
+    public class RepayInstallmentHandler : IRequestHandler<RepayInstallmentRequest, RepayInstallmentResponse>
     {
         private readonly IInstallmentRepository _installmentRepository;
         private readonly ILoanRepository _loanRepository;
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
 
-        public PayInstallmentHandler(IInstallmentRepository installmentRepository,
+        public RepayInstallmentHandler(IInstallmentRepository installmentRepository,
             ILoanRepository loanRepository,
             IUnitOfWork unitOfWork,
             IMapper mapper)
@@ -23,10 +23,10 @@ namespace Loans.Application.UseCases.PayInstallment
             this._mapper = mapper;
         }
 
-        public async Task<PayInstallmentResponse> Handle(PayInstallmentRequest request, CancellationToken cancellationToken)
+        public async Task<RepayInstallmentResponse> Handle(RepayInstallmentRequest request, CancellationToken cancellationToken)
         {
             var domain = await this._installmentRepository.GetByIdAsync(request.InstallmentId, cancellationToken);
-            domain.MarkAsPaid(DateTime.Today);
+            domain.MakeRepayment(DateTime.Today);
             await _installmentRepository.UpdateAsync(domain, cancellationToken);
 
             var allLoanInstallments = await this._installmentRepository.GetAllByLoanIdAsync(request.LoanId, cancellationToken);
@@ -44,7 +44,7 @@ namespace Loans.Application.UseCases.PayInstallment
             await _loanRepository.UpdateAsyn(loanDomain, cancellationToken);
 
             await _unitOfWork.CommitAsync(cancellationToken);
-            return new PayInstallmentResponse();
+            return new RepayInstallmentResponse();
         }
     }
 }

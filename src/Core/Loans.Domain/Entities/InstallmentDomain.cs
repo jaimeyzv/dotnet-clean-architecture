@@ -22,7 +22,7 @@ namespace Loans.Domain.Entities
         public DateTime? PaymentDate { get; set; }
         public int LoanId { get; set; }
 
-        public void MarkAsPaid(DateTime paymentDate)
+        public void MakeRepayment(DateTime paymentDate)
         {
             Status = InstallmentStatus.Paid;
             PaymentDate = paymentDate;
