@@ -20,5 +20,6 @@
         public decimal InterestRate { get; init; }
         public decimal TotalPayment { get; init; }
         public string Status { get; init; }
+        public int OverdueCount { get; set; }
     }
 }

@@ -36,6 +36,7 @@ namespace Loans.Infrastructure.Persistance.Repositories
         {
             var entityList = await this._context
                 .Loans
+                .Include(l => l.Installments)
                 .AsNoTracking()
                 .ToListAsync();
 
