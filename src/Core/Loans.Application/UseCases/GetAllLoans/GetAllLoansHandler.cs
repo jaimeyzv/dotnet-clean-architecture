@@ -30,7 +30,10 @@ namespace Loans.Application.UseCases.GetAllLoans
             var responseItems = _mapper.Map<List<LoanItemResponse>>(loans);
 
             foreach (var item in responseItems)
+            {
                 item.OverdueCount = overdueByLoanId.TryGetValue(item.LoanId, out var c) ? c : 0;
+                item.Status = item.OverdueCount > 0 ? "Overdue" : item.Status;
+            }
 
             return new GetAllLoansResponse(responseItems);
         }
