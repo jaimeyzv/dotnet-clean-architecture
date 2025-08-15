@@ -15,8 +15,8 @@ namespace Loans.Application.Services
         public static RepaymentModality GetRepaymentModalityEnum(this string? value) =>
             (value ?? string.Empty).Trim().ToUpperInvariant() switch
             {
-                "WEEKLY " => RepaymentModality.Weekly,
-                "EVERY15DAYS " => RepaymentModality.Every15Days,
+                "WEEKLY" => RepaymentModality.Weekly,
+                "EVERY15DAYS" => RepaymentModality.Every15Days,
                 "MONTHLY" => RepaymentModality.Monthly,
                 _ => throw new InvalidOperationException($"Invalid RepaymentModality: '{value}'")
             };
