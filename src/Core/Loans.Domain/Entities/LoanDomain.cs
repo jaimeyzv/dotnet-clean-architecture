@@ -63,7 +63,7 @@ namespace Loans.Domain.Entities
             Installments.Clear();
 
             var firstDueDate = GetFirstDueDate();
-            var endExclusive = firstDueDate.AddMonths(DurationMonths);
+            var endExclusive = DateTime.Today.AddMonths(DurationMonths);
 
             // 1) Build due dates according to modality
             List<DateTime> dueDates = RepaymentModality switch
