@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Loans.Application.Services;
 using Loans.Domain.Entities;
 
 namespace Loans.Application.UseCases.GetAllLoans
@@ -7,7 +8,8 @@ namespace Loans.Application.UseCases.GetAllLoans
     {
         public GetAllLoansMapper()
         {
-            CreateMap<LoanDomain, LoanItemResponse>();            
+            CreateMap<LoanDomain, LoanItemResponse>()
+                .ForMember(dest => dest.Status, opt => opt.MapFrom(src => src.Status.ToDisplayLoanStatus()));
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Loans.Application.Repositories;
+using Loans.Domain.Types;
 using MediatR;
 
 namespace Loans.Application.UseCases.PayInstallment
@@ -30,7 +31,7 @@ namespace Loans.Application.UseCases.PayInstallment
 
             var allLoanInstallments = await this._installmentRepository.GetAllByLoanIdAsync(request.LoanId, cancellationToken);
             var restOfInstallments = allLoanInstallments.Where(i => i.InstallmentId != domain.InstallmentId).ToList();
-            var isAnyPendingInstallment = restOfInstallments.Any(i => !i.IsPaid);
+            var isAnyPendingInstallment = restOfInstallments.Any(i => i.Status != InstallmentStatus.Paid);
 
             var loanDomain = await this._loanRepository.GetByIdAsync(request.LoanId, cancellationToken);
             loanDomain.DiscountAfterInstallmentPayment(domain.Amount);

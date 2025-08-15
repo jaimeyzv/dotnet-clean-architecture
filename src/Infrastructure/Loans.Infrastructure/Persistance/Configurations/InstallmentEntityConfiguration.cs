@@ -29,8 +29,8 @@ namespace Loans.Infrastructure.Persistance.Configurations
                    .IsRequired()
                    .HasPrecision(10, 2);
 
-            builder.Property(x => x.IsPaid)
-                   .HasColumnName("IsPaid")
+            builder.Property(x => x.Status)
+                   .HasColumnName("Status")
                    .IsRequired();
 
             builder.Property(x => x.PaymentDate)

@@ -1,4 +1,6 @@
-﻿namespace Loans.Domain.Entities
+﻿using Loans.Domain.Types;
+
+namespace Loans.Domain.Entities
 {
     public class InstallmentDomain
     {
@@ -6,7 +8,8 @@
         {
             InstallmentNumber = number;
             DueDate = dueDate;
-            Amount = amount;
+            Amount = amount;            
+            Status = InstallmentStatus.Pending; // Default when creating
         }
 
         public InstallmentDomain() { }
@@ -15,21 +18,22 @@
         public int InstallmentNumber { get; set; }
         public DateTime DueDate { get; set; }
         public decimal Amount { get; set; }
-        public bool IsPaid { get; set; }
-        public bool IsPastDue { get; set; }
+        public InstallmentStatus Status { get; set; }        
         public DateTime? PaymentDate { get; set; }
         public int LoanId { get; set; }
 
         public void MarkAsPaid(DateTime paymentDate)
         {
-            IsPaid = true;
+            Status = InstallmentStatus.Paid;
             PaymentDate = paymentDate;
         }
 
         public void CalculateOverdue()
         {
             var now = DateTimeOffset.Now;
-            this.IsPastDue = !this.IsPaid && this.DueDate < now;
+            this.Status = (this.Status != InstallmentStatus.Paid && this.DueDate < now)
+                ? InstallmentStatus.Overdue 
+                : this.Status;
         }
     }
 }

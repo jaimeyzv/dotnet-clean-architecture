@@ -19,8 +19,8 @@ namespace Loans.Infrastructure.Persistance.Entities
         [Column("Amount")]
         public decimal Amount { get; set; }
 
-        [Column("IsPaid")]
-        public bool IsPaid { get; set; }
+        [Column("Status")]
+        public string Status { get; set; }
 
         [Column("PaymentDate")]
         public DateTime? PaymentDate { get; set; }

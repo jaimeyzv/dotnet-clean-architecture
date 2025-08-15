@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Loans.Application.Services;
 using Loans.Domain.Entities;
 using Loans.Infrastructure.Persistance.Entities;
 
@@ -15,7 +16,7 @@ namespace Loans.Infrastructure.Persistance.Mappers
                     InstallmentNumber = src.InstallmentNumber,
                     DueDate = src.DueDate,
                     Amount = src.Amount,
-                    IsPaid = src.IsPaid,
+                    Status = src.Status.GetInstallmentStatusEnum(),
                     PaymentDate = src.PaymentDate,
                     LoanId = src.LoanInstallmentsLoanId
                 });

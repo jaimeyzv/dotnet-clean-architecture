@@ -1,4 +1,6 @@
-﻿namespace Loans.Domain.Entities
+﻿using Loans.Domain.Types;
+
+namespace Loans.Domain.Entities
 {
     public sealed class LoanDomain
     {
@@ -14,14 +16,14 @@
         public int DurationMonths { get; set; }
         public decimal InterestRate { get; set; }
         public decimal TotalPayment { get; set; }
-        public string Status { get; set; }
+        public LoanStatus Status { get; set; }
         public int OverdueCount { get; set; }
 
         public List<InstallmentDomain> Installments;
 
         public void MarkAsPaid()
         {
-            this.Status = "Paid";
+            this.Status = LoanStatus.PaidOff;
         }
 
         public void DiscountAfterInstallmentPayment(decimal paymentAmount)
@@ -49,7 +51,7 @@
 
             this.CurrentBalance = totalPayment;
             this.TotalPayment = totalPayment;
-            this.Status = "Active";
+            this.Status = LoanStatus.Active;
         }
 
         public void GenerateInstallments(DateTime firstDueDate)
@@ -66,8 +68,8 @@
         {
             var now = DateTimeOffset.Now;
             this.OverdueCount = this.Installments?
-                .Count(i => !i.IsPaid && i.DueDate < now) ?? 0;
-            this.Status = this.OverdueCount > 0 ? "Overdue" : this.Status;
+                .Count(i => i.Status != InstallmentStatus.Paid && i.DueDate < now) ?? 0;
+            this.Status = this.OverdueCount > 0 ? LoanStatus.Delinquent : this.Status;
         }
     }
 }
