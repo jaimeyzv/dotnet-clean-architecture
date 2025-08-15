@@ -16,6 +16,7 @@
         public DateTime DueDate { get; set; }
         public decimal Amount { get; set; }
         public bool IsPaid { get; set; }
+        public bool IsPastDue { get; set; }
         public DateTime? PaymentDate { get; set; }
         public int LoanId { get; set; }
 
@@ -23,6 +24,12 @@
         {
             IsPaid = true;
             PaymentDate = paymentDate;
+        }
+
+        public void CalculateOverdue()
+        {
+            var now = DateTimeOffset.Now;
+            this.IsPastDue = !this.IsPaid && this.DueDate < now;
         }
     }
 }

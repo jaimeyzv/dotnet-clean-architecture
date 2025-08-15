@@ -20,6 +20,8 @@ namespace Loans.Application.UseCases.GetInstallmentsByLoandId
         {
             var installments = await _installmentRepository.GetAllByLoanIdAsync(request.LoanId, cancellationToken);
 
+            foreach (var installment in installments) installment.CalculateOverdue();
+
             var response = new GetInstallmentsByLoanIdResponse
             {
                 Installments = _mapper.Map<List<InstallmentItemResponse>>(installments)

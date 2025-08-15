@@ -7,12 +7,13 @@
 
     public sealed class InstallmentItemResponse
     {
-        public int InstallmentId { get; set; }
-        public int InstallmentNumber { get; set; }
-        public DateTime DueDate { get; set; }
-        public decimal Amount { get; set; }
-        public bool IsPaid { get; set; }
-        public DateTime? PaymentDate { get; set; }
-        public int LoanId { get; set; }
+        public int InstallmentId { get; init; }
+        public int InstallmentNumber { get; init; }
+        public DateTime DueDate { get; init; }
+        public decimal Amount { get; init; }
+        public bool IsPaid { get; init; }
+        public bool IsPastDue { get; init; }
+        public DateTime? PaymentDate { get; init; }
+        public int LoanId { get; init; }
     }
 }
