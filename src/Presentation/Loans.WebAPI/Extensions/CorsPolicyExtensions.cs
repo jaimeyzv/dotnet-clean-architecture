@@ -4,10 +4,17 @@
     {
         public static void ConfigureCorsPolicy(this IServiceCollection services)
         {
-            services.AddCors(options => options.AddDefaultPolicy(builder => builder
-                .AllowAnyOrigin()
-                .AllowAnyMethod()
-                .AllowAnyHeader()));
+            const string DevCors = "DevCors";
+            services.AddCors(opt =>
+            {
+                opt.AddPolicy(DevCors, p => p
+                    .WithOrigins("http://localhost:4200") // Angular dev
+                    .AllowAnyHeader()
+                    .AllowAnyMethod()
+                    .AllowCredentials() // only if you actually use cookies/auth
+                );
+            });
+
         }
     }
 }
