@@ -29,7 +29,20 @@ In my projects, I have applied the concepts proposed by Robert C. Martin (Uncle 
 
 ## 🚀 About the project
 
-The purpose of the sample project I am submitting is to demonstrate an online loan management system that supports repayment in monthly installments. It enables users to register borrowers, track loan details, view the total and remaining installments for each loan, and calculate the profit generated from each loan.
+## 🚀 Project Purpose
+
+This sample application represents a simplified **Online Loan Management System** backend, implemented as a **.NET 9 Web API**, that exposes services for managing loan operations and business rules.  
+
+From the backend perspective, this system provides the following capabilities:
+
+- Manage borrower registration and persist loan assignments through secure endpoints.  
+- Handle loan installment scheduling with support for multiple repayment modalities (**Monthly**, **Weekly**, **Every 15 Days**).  
+- Expose endpoints to query outstanding and completed installments per loan.  
+- Implement business logic to calculate the total profit generated from issued loans.  
+- Detect overdue installments and classify loans as delinquent for risk monitoring.  
+
+Beyond loan domain functionality, this project also demonstrates the application of **Clean Architecture principles** in a backend environment — enforcing separation of concerns across **Domain**, **Application**, **Infrastructure**, and **Presentation** layers. It highlights patterns such as **CQRS with MediatR**, **dependency injection**, and **repository abstractions** to achieve modularity, scalability, and testability in the service layer.
+
 
 ## 📁 Project Structure
 
@@ -80,7 +93,16 @@ The purpose of the sample project I am submitting is to demonstrate an online lo
 	You’re all set! Build and run the app.
 	
 ## 🔗 Related Frontend Project
-This backend pairs with the companion Angular frontend below. Together they form a complete full-stack system.
+This backend pairs with the companion Angular 20 frontend. Together they form a complete full-stack system.	
+Right below, you can see the **Angular 20 frontend** presentation layer that **consumes this Web API**.  
+
+<p align="center">
+	<img 
+		src="https://github.com/jaimeyzv/dotnet-clean-architecture/blob/main/.project-ui-video/Online%20Loan%20Management%20System.gif"
+		width="100%" 
+		alt="Online Loan Management System - Demo" 
+	/>
+</p>
 
 - [Online Loan Frontend (Angular)](https://github.com/jaimeyzv/angular-feture-based-architecture)
 
