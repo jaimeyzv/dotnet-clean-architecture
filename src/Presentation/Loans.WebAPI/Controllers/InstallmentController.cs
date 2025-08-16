@@ -42,7 +42,7 @@ namespace Loans.WebAPI.Controllers
         {
             try
             {
-                var response = await _mediator.Send(new PayInstallmentRequest { LoanId = loanId, InstallmentId = installmentId }, cancellationToken);
+                var response = await _mediator.Send(new RepayInstallmentRequest { LoanId = loanId, InstallmentId = installmentId }, cancellationToken);
                 return Ok(response);
             }
             catch (Exception ex)

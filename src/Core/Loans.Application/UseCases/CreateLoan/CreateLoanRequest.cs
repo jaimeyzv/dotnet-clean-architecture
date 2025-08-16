@@ -7,5 +7,6 @@ namespace Loans.Application.UseCases.CreateLoan
         public decimal Amount { get; set; }
         public string BorrowerName { get; set; }
         public int DurationMonths { get; set; }
+        public string RepaymentModality { get; set; }
     }
 }

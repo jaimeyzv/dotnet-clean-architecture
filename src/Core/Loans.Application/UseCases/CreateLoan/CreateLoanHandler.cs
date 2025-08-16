@@ -24,7 +24,7 @@ namespace Loans.Application.UseCases.CreateLoan
         {
             var loanDomain = _mapper.Map<LoanDomain>(request);
             loanDomain.NewLoanCreation();            
-            loanDomain.GenerateInstallments(DateTime.Today.AddMonths(1));
+            loanDomain.GenerateInstallments();
             await _loanRepository.CreateAsync(loanDomain, cancellationToken);
             await _unitOfWork.CommitAsync(cancellationToken);
             return _mapper.Map<CreateLoanResponse>(loanDomain);
