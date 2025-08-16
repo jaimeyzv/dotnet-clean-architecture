@@ -96,6 +96,7 @@ Beyond loan domain functionality, this project also demonstrates the application
 This backend pairs with the companion Angular 20 frontend. Together they form a complete full-stack system.	
 Right below, you can see the **Angular 20 frontend** presentation layer that **consumes this Web API**.  
 
+- [Online Loan Frontend (Angular)](https://github.com/jaimeyzv/angular-feture-based-architecture)
 <p align="center">
 	<img 
 		src="https://github.com/jaimeyzv/dotnet-clean-architecture/blob/main/.project-ui-video/Online%20Loan%20Management%20System.gif"
@@ -104,7 +105,6 @@ Right below, you can see the **Angular 20 frontend** presentation layer that **c
 	/>
 </p>
 
-- [Online Loan Frontend (Angular)](https://github.com/jaimeyzv/angular-feture-based-architecture)
 
 ## 👤 About me
 
