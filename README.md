@@ -62,6 +62,23 @@ The purpose of the sample project I am submitting is to demonstrate an online lo
             └───Extensions
 ```
 
+## ⚙️ How to Run the Project
+
+1. **Run the SQL script**  
+   Execute the provided `.sql` file in **database scripts** folder to create and seed the database schema.
+
+2. **Configure the connection string**  
+   Open the `appsettings.json` file and locate the **ConnectionStrings** section.  
+   Update the value of `Database` with your local connection string:
+
+   ```json
+   "ConnectionStrings": {
+     "Database": "Server=localhost;Database=YourDbName;User Id=yourUser;Password=yourPassword;"
+   }
+	```
+3. **Run the application**
+	You’re all set! Build and run the app.
+	
 ## 🔗 Related Frontend Project
 This backend pairs with the companion Angular frontend below. Together they form a complete full-stack system.
 
