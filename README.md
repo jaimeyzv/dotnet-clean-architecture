@@ -29,8 +29,6 @@ In my projects, I have applied the concepts proposed by Robert C. Martin (Uncle 
 
 ## 🚀 About the project
 
-## 🚀 Project Purpose
-
 This sample application represents a simplified **Online Loan Management System** backend, implemented as a **.NET 9 Web API**, that exposes services for managing loan operations and business rules.  
 
 From the backend perspective, this system provides the following capabilities:
