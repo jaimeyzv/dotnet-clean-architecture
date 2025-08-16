@@ -76,7 +76,7 @@ The purpose of the sample project I am submitting is to demonstrate an online lo
      "Database": "Server=localhost;Database=YourDbName;User Id=yourUser;Password=yourPassword;"
    }
 	```
-3. **Run the application**
+3. **Run the application**  
 	You’re all set! Build and run the app.
 	
 ## 🔗 Related Frontend Project
