@@ -1,15 +1,15 @@
 USE master
 
-IF EXISTS (SELECT name FROM sys.databases WHERE name = 'OnlineLoans')
+IF EXISTS (SELECT name FROM sys.databases WHERE name = 'db-online-loan-management-system')
 BEGIN
-    DROP DATABASE [OnlineLoans]
+    DROP DATABASE [db-online-loan-management-system]
 	USE master
 END
 
-CREATE DATABASE [OnlineLoans]
+CREATE DATABASE [db-online-loan-management-system]
 GO
 
-USE [OnlineLoans]
+USE [db-online-loan-management-system]
 GO
 
 CREATE TABLE [dbo].[Loans]
