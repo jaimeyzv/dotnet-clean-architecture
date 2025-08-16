@@ -17,13 +17,9 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 app.UseHttpsRedirection();
 
-app.UseCors("SwaCors");
+app.UseCors("DevCors");
 
 app.UseAuthorization();
-
-app.MapGet("/health", () => Results.Ok(new { status = "Healthy" }))
-   .WithName("Health")
-   .AllowAnonymous();
 
 app.MapControllers();
 
